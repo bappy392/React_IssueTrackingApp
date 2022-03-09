@@ -1,12 +1,12 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Table } from 'react-bootstrap';
+import {Table} from 'react-bootstrap';
 
 
 const TableComponent=({newArrState})=>{
   return(
       <>
-      <Table striped bordered hover>
+      <Table striped bordered hover className='m-5'>
       <thead>
     <tr>
       <th>#</th>
@@ -22,7 +22,7 @@ const TableComponent=({newArrState})=>{
   <tbody>
       {       
         newArrState.map((item,i)=>(
-            <>
+          
               <tr key={i}>
                 <td>{i+1}</td>
                 <td>{item.title}</td>
@@ -33,7 +33,7 @@ const TableComponent=({newArrState})=>{
                 <td>{item.priority}</td>
                 <td>{item.rangeComplete}</td>
                 </tr>
-                </>
+                
         ))
      }
       

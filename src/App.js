@@ -1,10 +1,10 @@
-import logo from './logo.svg';
+
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Table } from 'react-bootstrap';
 import React, { useState } from 'react';
 import Total from './Total';
 import TableComponent from './TableComponent';
+import { Form } from 'react-bootstrap';
 
 
 function App() {
@@ -56,44 +56,44 @@ function App() {
 
   return (
     <>
-      <form onSubmit={onSubmitHandler}>
-        <h1>Issue Tracking Manager</h1>
-        <div className='form-group'>
-          <label htmlFor='title'>Title</label>
-          <input 
+      <Form onSubmit={onSubmitHandler} className="m-5">
+        <h1 className='text-center'>Issue Tracking Manager</h1>
+        <Form.Group className='form-group'>
+          <Form.Label htmlFor='title'>Title</Form.Label>
+          <Form.Control 
              name='title'
              type='text'
              id='title'
              onChange={handleChange}
              value={title}
           />
-          </div>
+          </Form.Group>
 
-          <div className='form-group'>
-          <label htmlFor='subtitle'>Sub Title</label>
-          <input 
+          <Form.Group className='form-group'>
+          <Form.Label htmlFor='subtitle'>Sub Title</Form.Label>
+          <Form.Control  
              name='subtitle'
              type='text'
              id='subtitle'
              onChange={handleChange}
              value={subtitle}
           />
-          </div>
+          </Form.Group>
 
-          <div className='form-group'>
-          <label htmlFor='assigned'>Assigned To</label>
-          <input 
+          <Form.Group className='form-group'>
+          <Form.Label htmlFor='assigned'>Assigned To</Form.Label>
+          <Form.Control 
              name='assigned'
              type='text'
              id='assigned'
              onChange={handleChange}
              value={assigned}
           />
-          </div>
+          </Form.Group>
 
-          <div className='form-group'>
-          <label htmlFor='start'>Start</label>
-          <input 
+          <Form.Group className='form-group'>
+          <Form.Label htmlFor='start'>Start</Form.Label>
+          <Form.Control 
              name='start'
              type='date'
              id='start'
@@ -101,8 +101,8 @@ function App() {
              value={start}
           />
 
-        <label htmlFor='end'>End</label>
-          <input 
+        <Form.Label htmlFor='end'>End</Form.Label>
+          <Form.Control 
              name='end'
              type='date'
              id='end'
@@ -110,9 +110,9 @@ function App() {
              value={end}
           />
 
-          </div>
+          </Form.Group>
 
-          <div className='form-group'>
+          <Form.Group className='form-group'>
           <input
               type='radio'
               name='priority'
@@ -140,7 +140,7 @@ function App() {
              />
             <label htmlFor='priority'>Low</label>
           
-          </div>
+          </Form.Group>
 
           <div className='form-group'>
              <label htmlFor='rangeComplete'>Completed in percentage</label>
@@ -154,19 +154,17 @@ function App() {
              />
              <input 
               type='text'
+              onChange={handleChange}
               value={rangeComplete}
              />
           </div>
 
 
-        <input type='submit' value="Submit"/>
+        <input className='btn btn-primary' type='submit' value="Submit"/>
 
-      </form>
-
-      <div>
-        <br></br>        
+      </Form>
+      
         <Total length={newArrState.length}/>
-      </div>
         
         <TableComponent newArrState={newArrState}/>
     </>
